@@ -1,11 +1,11 @@
 ﻿# Simple Battle Simulator
 
-This is a basic Python battle simulation between two characters: a heroic Knight and a mischievous Goblin. The game demonstrates object-oriented programming principles such as classes, methods, and interaction between objects.
+This Python battle simulation pits a heroic Knight against two enemies, a Goblin and an Orc. It demonstrates object-oriented programming with character classes and a turn-based battle.
 
 ## File Structure
 
-- `character.py`: Defines the `Character` class with attributes and methods for combat.
-- `main.py`: Runs the battle simulation using two instances of `Character`.
+- `character.py`: Defines the `Character` class and its combat behavior.
+- `main.py`: Runs a battle between the Knight and both enemies.
 
 ## Character Class
 
@@ -13,29 +13,24 @@ Located in `character.py`, the `Character` class includes:
 
 ### Attributes
 - `name` (str): The character's name.
-- `hp` (int): Hit points (health).
-- `attack_power` (int): Damage dealt per attack.
+- `hp` (number): Current hit points.
+- `attack_power` (number): The attack's initial power. Each attack deals a random 30%-90% of this value.
 
 ### Methods
-- `attack(other)`: Reduces the `other` character's HP by `attack_power` and prints an attack message.
+- `attack(other)`: Randomly reduces the other character's HP by 30%-90% of the attacker's initial attack power, without reducing HP below zero.
 - `is_alive()`: Returns `True` if HP is greater than 0.
 - `__str__()`: Returns a string representation of the character's current HP.
 
 ## How the Battle Works
 
-The battle logic in `main.py` follows these steps:
-
-1. Create two characters: Knight and Goblin.
+1. Create a Knight, a Goblin, and an Orc.
 2. Print their initial stats.
-3. Loop while both are alive:
-   - Knight attacks Goblin.
-   - If Goblin survives, Goblin attacks Knight.
-   - Print updated stats.
-4. Declare the winner when one character's HP reaches zero.
+3. The Knight attacks each living enemy, then each surviving enemy attacks the Knight.
+4. Repeat until the Knight or both enemies are defeated, then declare the result.
 
 ## Running the Game
 
-To run the simulation, execute `main.py`:
+Execute `main.py`:
 
 ```bash
 python main.py
